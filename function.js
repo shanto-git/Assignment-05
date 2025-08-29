@@ -8,7 +8,7 @@ const coin = document.getElementById("coinCount");
 const copy = document.getElementById("nav-copy");
 
 
-// Heart Button Function
+
 const heartButtons = document.querySelectorAll("[id^='heart-btn-']");
 heartButtons.forEach(btn => {
     btn.addEventListener("click", function() {
@@ -17,7 +17,6 @@ heartButtons.forEach(btn => {
     });
 });
 
-// Copy Button Function
 const copyButtons = document.querySelectorAll(".fa-copy").forEach(copyIcon => {
     const btn = copyIcon.parentElement;
     btn.addEventListener("click", () => {
@@ -53,23 +52,20 @@ const callButtons = document.querySelectorAll(".fa-phone").forEach(callIcon => {
 
         alert(`Calling ${serviceName} at ${number}`);
 
-        // Add to history
-        const historyDiv = document.getElementById("history");
+        const historyItem = document.getElementById("history");
         const item = document.createElement("div",);
-        item.classList.add("py-2","px-2",);
         item.innerHTML = `
-            <div class="flex justify-between items-center ">
+            <div class="flex justify-between items-center p-3">
             <div>
             <p class="font-bold">${serviceName}</p>
             <p>${number}</p>
             </div>
             <p class="text-sm text-black">${time}</p></div>
         `;
-        historyDiv.appendChild(item);
+        historyItem.appendChild(item);
     });
 });
 
-// Clear History
 document.getElementById("clear-btn").addEventListener("click",function() {
     document.getElementById("history").innerHTML = "";
 });
